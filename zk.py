@@ -15,9 +15,9 @@
 
 
 
-pro = input('An apple a day keeps the doctor away')
-# for i in pro:
-print(','.join(pro))
+# pro = input('An apple a day keeps the doctor away')
+# # for i in pro:
+# print(','.join(pro))
 #     l = i.split(',')
 #     klin += 1
 # print(klin)
@@ -35,4 +35,31 @@ print(','.join(pro))
 
 
 
+
 # los = {x: y for x in pro for y in }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,22 +1,29 @@
 import telebot
-import config
+from telebot import types
+TOKEN = '1958484914:AAElAx_Y-s766tWnOjDLf09-3DAbkqBOKBI'
 
-bot = telebot.Telegram(config.Token)
+bot = telebot.TeleBot(TOKEN)
 
-@bot.message_handler(content_types=['text'])
-def mas(message):
-    if message.chat.type == 'private':
-        if message.text == 'Скандинаская':
-bot.send_message(message.chat.id,'Хороший выбор, оплатите заказ')
-elif message.text == 'Мафия-семейная':
+@bot.message_handler(commands=['start'])
+def start(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard = True)
+    item1 = types.KeyboardButton('👍 Пицца')
+    item2 = types.KeyboardButton('🥗 Салаты')
+    item3 = types.KeyboardButton('❌ Другое')
 
-markup = types.InlineKeyboardMarkup(row_width=2)
-item1 = types.InlineKeyboardButton("")
-item2 = types.InlineKeyboardButton("Не очень")
 
-markup.add(item1, item2)
 
-bot.send_message(message.chat.id, 'Отлично, сам как?', reply_markup=markup)
-else:
-bot.send_message(message.chat.id, 'Я не знаю что ответить 😢')
-bot.polling()
+
+
+    markup.add(item1, item2, item3)
+
+    bot.send_message(message.chat.id, 'Привет, {0.first_name}', format(message.from_user), reply_markup = markup)
+
+bot.polling(none_stop = True)
+
+
+
+
+
+
+
