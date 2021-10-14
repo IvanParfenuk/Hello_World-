@@ -1,25 +1,31 @@
-import telebot
-from telebot import types
-TOKEN = '1958484914:AAElAx_Y-s766tWnOjDLf09-3DAbkqBOKBI'
 
-bot = telebot.TeleBot(TOKEN)
+from aiogram import Bot, Dispatcher, types
 
-@bot.message_handler(commands=['start'])
-def start(message):
-    markup = types.ReplyKeyboardMarkup(resize_keyboard = True)
-    item1 = types.KeyboardButton('👍 Пицца')
-    item2 = types.KeyboardButton('🥗 Салаты')
-    item3 = types.KeyboardButton('❌ Другое')
+bot = Bot('2098527930:AAGW6h800_oqeNCYbxX-axLsehlqzEtt-VA')
+dp = Dispatcher(bot)
+
+@dp.message_handler(commands="start")
+async def cmd_start(message: types.Message):
+    keyboard = types.ReplyKeyboardMarkup()
+    button_1 = types.KeyboardButton(text="С пюрешкой")
+    keyboard.add(button_1)
+    button_2 = "Без пюрешки"
+    keyboard.add(button_2)
+    await message.answer("Как подавать котлеты?", reply_markup=keyboard)
 
 
 
 
 
-    markup.add(item1, item2, item3)
 
-    bot.send_message(message.chat.id, 'Привет, {0.first_name}', format(message.from_user), reply_markup = markup)
 
-bot.polling(none_stop = True)
+
+
+
+
+
+
+
 
 
 
