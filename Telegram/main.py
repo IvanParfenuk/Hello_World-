@@ -8,10 +8,17 @@ def start(message):
     bot.send_message(message.chat.id, send_message)
 
 
+@bot.message_handler(content_types=["text"])
+def start(message):
+    if message.chat.id == 'привет'or 'Привет':
+        nexts = 'Привет, хочешь сделать заказ?'
+        bot.send_message(message.chat.id, nexts)
+
+
+
+
+
 bot.polling(none_stop=True)
-
-
-
 
 
 # async def cmd_start(message: types.Message):
@@ -21,7 +28,6 @@ bot.polling(none_stop=True)
 #     button_2 = "Без пюрешки"
 #     keyboard.add(button_2)
 #     await message.answer("Как подавать котлеты?", reply_markup=keyboard)
-
 
 
 
