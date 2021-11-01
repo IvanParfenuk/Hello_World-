@@ -1,5 +1,4 @@
 import telebot
-from telebot import types
 from Telegram.Telegram import keyboard
 
 bot =telebot.TeleBot('2098527930:AAGW6h800_oqeNCYbxX-axLsehlqzEtt-VA')
@@ -23,9 +22,9 @@ def send_text(message):
         description = 'Цезарь с креветками:\nкоролевские креветки, сыр Джюгас, томаты, салат Айсберг, чесночные гренки, зелень, соус Цезарь 230 г'
         bot.send_photo(message.chat.id, photo=open('Salat-Tsezar-s-krevetkami.jpg', 'rb'), caption=description, reply_markup=keyboard.eda_)
 
-    else:
-        text = open('best.txt', 'r')
-        bot.send_message(message.chat.id, text, reply_markup=keyboard.markup)
+    # else:
+    #     f = open('C.txt')
+    #     bot.send_message(message.chat.id, f, reply_markup=keyboard.markup)
 
 bot.polling(none_stop=True)
 
