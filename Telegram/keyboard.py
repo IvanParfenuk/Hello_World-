@@ -19,8 +19,6 @@ markup2.row(back)
 
 
 
-
-
 # # keyboard for rewinding
 # eda_ = types.InlineKeyboardMarkup()
 # but_1 = types.InlineKeyboardButton(text="◀", callback_data="Вперед")
